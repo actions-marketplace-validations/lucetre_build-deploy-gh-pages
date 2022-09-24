@@ -4,13 +4,10 @@ branding:
   icon: book-open
   color: yellow
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+inputs:
+  GH_TOKEN:
+    description: 'GitHub Token'
+    required: true
 
 runs:
   using: "composite"
@@ -32,8 +29,8 @@ runs:
         name: production-files
         path: ./build
 
-#     - name: Deploy to gh-pages
-#       uses: peaceiris/actions-gh-pages@v3
-#       with:
-#         github_token: ${{ secrets.GITHUB_TOKEN }}
-#         publish_dir: ./build
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ inputs.GH_TOKEN }}
+        publish_dir: ./build
