@@ -1,4 +1,8 @@
-name: Build & deploy
+name: Build and Deploy to GitHub Pages
+description: Build your application and Deploy to GitHub Pages
+branding:
+  icon: 'upload-cloud'
+  color: 'purple'
 
 on:
   push:
