@@ -11,6 +11,7 @@ inputs:
   BUILD_PATH:
     description: 'Relative path of your App to be built'
     required: true
+    default: .
 
 runs:
   using: "composite"
