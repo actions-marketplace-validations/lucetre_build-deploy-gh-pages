@@ -12,10 +12,6 @@ inputs:
     description: 'Relative path of your App to be built'
     required: true
     default: .
-  DEPLOY_PATH:
-    description: 'Relative path of your App to be built'
-    required: true
-    default: build
 
 runs:
   using: "composite"
@@ -39,10 +35,10 @@ runs:
       uses: actions/upload-artifact@v2
       with:
         name: production-files
-        path: ${{ inputs.DEPLOY_PATH }}
+        path: ${{ inputs.BUILD_PATH }}/build
 
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ inputs.GH_TOKEN }}
-        publish_dir: ${{ inputs.DEPLOY_PATH }}
+        publish_dir: ${{ inputs.BUILD_PATH }}/build
