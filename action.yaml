@@ -22,7 +22,7 @@ runs:
         node-version: 16.x
 
     - name: Install NPM packages
-      run: npm install && npm update caniuse-lite browserslist
+      run: npm install
       shell: bash
       working-directory: ${{ inputs.BUILD_PATH }}
 
