@@ -36,13 +36,6 @@ runs:
       with:
         name: production-files
         path: ${{ inputs.BUILD_PATH }}/build
-        
-    - name: Create Branch
-      uses: peterjgrainger/action-create-branch@v2.0.1
-      env:
-        GITHUB_TOKEN: ${{ inputs.GH_TOKEN }}
-      with:
-        branch: gh-pages
 
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
